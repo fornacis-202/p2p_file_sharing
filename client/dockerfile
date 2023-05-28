@@ -1,0 +1,14 @@
+FROM ubuntu:20.04
+
+LABEL Maintainer="moalmo"
+
+WORKDIR /usr/app/such 
+
+COPY stun.py ./ 
+COPY my_file.txt ./ 
+COPY my_file.jpg ./ 
+
+RUN apt-get update && \
+ apt-get install -y python
+
+CMD ["python", "./client.py"]
